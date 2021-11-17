@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1><img src="./icons/codepen.svg" alt="codepen-logo" srcset=""><span class="header__name">CodePen</span></h1>
+        <select name="theme" id="header__themeMenu">
+            <option name="theme" value="xcode">Xcode</option>
+            <option name="theme" value="monokai">MonoKai</option>
+            <option name="theme" value="agolawhite">Agolawhite</option>
+            <option name="theme" value="cobalt">Cobalt</option>
+            <option name="theme" value="chrome">Chrome</option>
+            <option name="theme" value="github">Github</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <!-- container to write js html and css  -->
+        <div class="htmlCssJsContainer">
+
+            <!-- .html container  -->
+            <div class="fullContainer">
+                <div class="name"><span class="name__span"><img src="./icons/html.svg" alt="" srcset="">HTML</span>
+                </div>
+                <div id="htmlContainer" class="codeContainer" contenteditable="true" spellcheck="false">
+                </div>
+            </div>
+
+            <!-- css container  -->
+            <div class="fullContainer">
+                <div class="name"><span class="name__span"><img src="./icons/css.svg" alt="" srcset="">CSS</span></div>
+                <div id="cssContainer" class="codeContainer" contenteditable="true" spellcheck="false">
+                </div>
+            </div>
+
+            <!-- Js container  -->
+            <div class="fullContainer">
+                <div class="name"><span class="name__span"><img src="./icons/js.svg" alt="" srcset="">JAVASCRIPT</span>
+                </div>
+                <div id="jsContainer" class="codeContainer" contenteditable="true" spellcheck="false">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="outputContainer">
+
+            <iframe src="" class="resultContainer">
+            </iframe>
+
+        </div>
+
+    </div>
+
+    <!-- ace editor script cdn  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"
+        integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js"
+        integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.min.js"
+        integrity="sha512-ZxMbXDxB0Whct+zt+DeW/RZaBv33N5D7myNFtBGiqpDSFRLxn2CNp6An0A1zUAJU/+bl8CMVrwxwnFcpFi3yTQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- custom scripts  -->
+    <script src="./script.js" type="text/javascript"></script>
+</body>
+
+</html>
