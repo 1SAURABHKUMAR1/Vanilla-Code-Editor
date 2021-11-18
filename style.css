@@ -22,13 +22,14 @@ body {
 .header {
   height: var(--header-height);
   overflow: auto;
-  padding: 0.5rem 1.5rem;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   scrollbar-width: none;
   background-color: var(--mid-black);
   border-bottom: solid var(--border-grey) 1px;
+  gap: 3rem;
 }
 
 .header::-webkit-scrollbar {
