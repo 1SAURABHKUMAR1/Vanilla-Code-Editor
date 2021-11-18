@@ -52,18 +52,31 @@ body {
   color: #ffff;
 }
 
-.header #header__themeMenu {
+.header .select__download {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.header .select__download .download__icon {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header .select__download #header__themeMenu {
   padding: 0.4rem 0.1rem;
   border-radius: 0.2rem;
   outline: none;
   background-color: #f9fafb;
 }
 
-.header #header__themeMenu:hover {
+.header .select__download #header__themeMenu:hover {
   background-color: #f5f3ff;
 }
 
-.header #header__themeMenu option {
+.header .select__download #header__themeMenu option {
   padding: 0.6rem;
   outline: #e5e7eb;
   border: none;
@@ -79,6 +92,7 @@ body {
 /* main container  */
 
 .container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   scrollbar-width: none;
@@ -89,7 +103,7 @@ body {
 
 .htmlCssJsContainer {
   width: 100%;
-  height: 50%;
+  height: 46%;
   display: flex;
   overflow: auto;
   scrollbar-width: none;
@@ -146,14 +160,15 @@ body {
 /* container to show output  */
 .outputContainer {
   width: 100%;
-  height: 50%;
+  height: 54%;
+  overflow: auto;
 }
 
 /* result container  */
 .resultContainer {
   width: 100%;
-  height: 100%;
-  overflow: auto;
+  height: 99%;
+  overflow: scroll;
 }
 
 @media screen and (max-width: 670px) {
@@ -170,8 +185,13 @@ body {
     width: 100%;
     height: 20rem;
   }
+
   .outputContainer {
     height: 30rem;
+  }
+
+  .resultContainer {
+    height: 99.2%;
   }
 }
 

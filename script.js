@@ -17,6 +17,8 @@ var resultArea = document.querySelector('.resultContainer');
 // editor theme to choose ie menu 
 var editorTheme = document.querySelector('#header__themeMenu');
 
+// donwload button
+var downloadButton = document.querySelector('.download__icon');
 
 // boolean value used to show and hide
 var htmlActive = true;
@@ -149,8 +151,11 @@ const getInnerHtmlIframe = (htmlInnerHTML, cssInnerHTML, jsInnerHTMl) => {
     // iframe inner html
     const iframeBoilerPlate = `
         <!DOCTYPE html>
-        <html>
+        <html lang="en">
         <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
                 ${cssInnerHTML}
             </style>
@@ -174,7 +179,7 @@ const getInnerHtmlIframe = (htmlInnerHTML, cssInnerHTML, jsInnerHTMl) => {
 if (localStorage.getItem('htmlCodePenSaurabh')) {
     editorHtml.setValue(JSON.parse(localStorage.getItem('htmlCodePenSaurabh')));
 } else {
-    editorHtml.setValue('<h1>Namaskar</h1>');
+    editorHtml.setValue('<h1>(≥o≤)</h1>');
 }
 
 
@@ -226,3 +231,15 @@ function updateLocalStorage() {
     localStorage.setItem('themeCodePenSaurabh', JSON.stringify(editorCss.getTheme()));
 
 }
+
+
+// download whole html css and js
+downloadButton.addEventListener('click', () => {
+    let BlobDownload = getInnerHtmlIframe(editorHtml.getValue(), editorCss.getValue(), editorJs.getValue());
+
+    let a = document.createElement('a');
+    a.href = BlobDownload;
+    a.download = 'index.html';
+    a.click();
+
+})
