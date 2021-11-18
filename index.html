@@ -12,11 +12,17 @@
 <body>
 
     <div class="header">
-        <h1><img src="./icons/codepen.svg" alt="codepen-logo" srcset=""><span class="header__name">CodePen</span></h1>
+        <h1><img src="./icons/codepen.svg" alt="codepen-logo" srcset="" id="#codepen"><span
+                class="header__name">CodePen</span></h1>
+        <div class="header__languages">
+            <div class="name htmlButton">HTML</div>
+            <div class="name cssButton">CSS</div>
+            <div class="name jsButton">JS</div>
+        </div>
         <select name="theme" id="header__themeMenu">
             <option name="theme" value="xcode">Xcode</option>
             <option name="theme" value="monokai">MonoKai</option>
-            <option name="theme" value="agolawhite">Agolawhite</option>
+            <option name="theme" value="tomorrow">Tomorrow</option>
             <option name="theme" value="cobalt">Cobalt</option>
             <option name="theme" value="chrome">Chrome</option>
             <option name="theme" value="github">Github</option>
@@ -28,7 +34,7 @@
         <div class="htmlCssJsContainer">
 
             <!-- .html container  -->
-            <div class="fullContainer">
+            <div class="fullContainer htmlBox">
                 <div class="name"><span class="name__span"><img src="./icons/html.svg" alt="" srcset="">HTML</span>
                 </div>
                 <div id="htmlContainer" class="codeContainer" contenteditable="true" spellcheck="false">
@@ -36,14 +42,14 @@
             </div>
 
             <!-- css container  -->
-            <div class="fullContainer">
+            <div class="fullContainer cssBox">
                 <div class="name"><span class="name__span"><img src="./icons/css.svg" alt="" srcset="">CSS</span></div>
                 <div id="cssContainer" class="codeContainer" contenteditable="true" spellcheck="false">
                 </div>
             </div>
 
             <!-- Js container  -->
-            <div class="fullContainer">
+            <div class="fullContainer jsBox">
                 <div class="name"><span class="name__span"><img src="./icons/js.svg" alt="" srcset="">JAVASCRIPT</span>
                 </div>
                 <div id="jsContainer" class="codeContainer" contenteditable="true" spellcheck="false">

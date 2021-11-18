@@ -54,21 +54,26 @@ body {
 
 .header #header__themeMenu {
   padding: 0.4rem 0.1rem;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   outline: none;
-  /* background-color: ; */
+  background-color: #f9fafb;
 }
 
 .header #header__themeMenu:hover {
-  /* background-color: var(--hover-grey); */
-  border-radius: 0.2rem;
+  background-color: #f5f3ff;
 }
 
 .header #header__themeMenu option {
   padding: 0.6rem;
-  /* outline: var(--active-grey); */
+  outline: #e5e7eb;
   border: none;
   text-decoration: none;
+}
+
+.header .header__languages {
+  display: flex;
+  color: white;
+  cursor: pointer;
 }
 
 /* main container  */
@@ -76,6 +81,8 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  scrollbar-width: none;
+  height: calc(100vh - var(--header-height));
 }
 
 /* container to write html and css  and js  */
@@ -95,6 +102,7 @@ body {
 /* code container  */
 .fullContainer {
   width: 33.3%;
+  flex: 1 1 auto;
   height: calc(50vh - var(--header-height));
   border-left: 0.5rem solid var(--mid-black);
   border-right: 0.5rem solid var(--mid-black);
@@ -148,9 +156,10 @@ body {
   overflow: auto;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 670px) {
   .container {
     overflow: auto;
+    height: 100%;
   }
   .htmlCssJsContainer {
     flex-direction: column;
@@ -164,4 +173,18 @@ body {
   .outputContainer {
     height: 30rem;
   }
+}
+
+*::-webkit-scrollbar {
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #d1d5db;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1d1e22;
+  border-radius: 1rem;
+  border: 2px solid #d1d5db;
 }
