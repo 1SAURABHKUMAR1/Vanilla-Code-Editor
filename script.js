@@ -54,6 +54,9 @@ editorTheme.addEventListener('input', () => {
     editorHtml.setTheme(`ace/theme/${editorTheme.value}`);
     editorCss.setTheme(`ace/theme/${editorTheme.value}`);
     editorJs.setTheme(`ace/theme/${editorTheme.value}`);
+
+    // update local storage
+    updateLocalStorage();
 })
 
 
@@ -109,19 +112,34 @@ jsButton.addEventListener('click', () => {
 
 // reload iframe in change
 editorHtml.addEventListener('input', () => {
+
+    // render html css js
     resultArea.src = getInnerHtmlIframe(editorHtml.getValue(), editorCss.getValue(), editorJs.getValue());
+
+    // update local storage
+    updateLocalStorage();
 })
 
 
 // reload iframe in change
 editorCss.addEventListener('input', () => {
+
+    // render html css js
     resultArea.src = getInnerHtmlIframe(editorHtml.getValue(), editorCss.getValue(), editorJs.getValue());
+
+    //update localStorage
+    updateLocalStorage();
 })
 
 
 // reload iframe in change
 editorJs.addEventListener('input', () => {
+
+    // render html css js
     resultArea.src = getInnerHtmlIframe(editorHtml.getValue(), editorCss.getValue(), editorJs.getValue());
+
+    // update local storage
+    updateLocalStorage();
 })
 
 
@@ -148,5 +166,63 @@ const getInnerHtmlIframe = (htmlInnerHTML, cssInnerHTML, jsInnerHTMl) => {
 
     const htmlFinalBlob = new Blob([iframeBoilerPlate], { type: 'text/html' });
     return URL.createObjectURL(htmlFinalBlob);
+
+}
+
+
+// load html local storage onload
+if (localStorage.getItem('htmlCodePenSaurabh')) {
+    editorHtml.setValue(JSON.parse(localStorage.getItem('htmlCodePenSaurabh')));
+} else {
+    editorHtml.setValue('<h1>Namaskar</h1>');
+}
+
+
+// load css localstorage onload
+if (localStorage.getItem('cssCodePenSaurabh')) {
+    editorCss.setValue(JSON.parse(localStorage.getItem('cssCodePenSaurabh')));
+} else {
+    editorCss.setValue("@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');\nbody{\n  font-family:'Roboto';\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height:100vh;\n  width:100vw;\n  overflow:hidden;\n}\n\nh1{\n    color:#9CA3AF;\n    font-size:12rem;\n    letter-spacing:1rem;\n    font-weight:900;\n}");
+}
+
+
+// load js local storage onload
+if (localStorage.getItem('jsCodePenSaurabh')) {
+    editorJs.setValue(JSON.parse(localStorage.getItem('jsCodePenSaurabh')));
+} else {
+    editorJs.setValue("console.log('Namaskar');");
+}
+
+
+//  load editor theme if available in local storage
+if (localStorage.getItem('themeCodePenSaurabh')) {
+    let savedTheme = JSON.parse(localStorage.getItem('themeCodePenSaurabh'));
+    editorHtml.setTheme(`${savedTheme}`);
+    editorCss.setTheme(`${savedTheme}`);
+    editorJs.setTheme(`${savedTheme}`);
+    editorTheme.value = savedTheme.slice(10);
+}
+
+
+// local storage
+function updateLocalStorage() {
+
+    // html 
+    if (editorHtml.getValue() != '\n                ') {
+        localStorage.setItem('htmlCodePenSaurabh', JSON.stringify(editorHtml.getValue()));
+    }
+
+    // css
+    if (editorCss.getValue() != '\n                ') {
+        localStorage.setItem('cssCodePenSaurabh', JSON.stringify(editorCss.getValue()));
+    }
+
+    // javascript 
+    if (editorJs.getValue() != '\n\n                ') {
+        localStorage.setItem('jsCodePenSaurabh', JSON.stringify(editorJs.getValue()));
+    }
+
+    // theme
+    localStorage.setItem('themeCodePenSaurabh', JSON.stringify(editorCss.getTheme()));
 
 }
