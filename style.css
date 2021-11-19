@@ -16,6 +16,8 @@
 
 body {
   font-family: "Roboto", monospace;
+  height: 100vh;
+  width: 100%;
 }
 
 /* header  */
@@ -103,7 +105,6 @@ body {
 /* container to write html and css  and js  */
 
 .htmlCssJsContainer {
-  width: 100%;
   height: 46%;
   display: flex;
   overflow: auto;
@@ -116,7 +117,6 @@ body {
 
 /* code container  */
 .fullContainer {
-  width: 33.3%;
   flex: 1 1 auto;
   height: calc(50vh - var(--header-height));
   border-left: 0.5rem solid var(--mid-black);
@@ -128,7 +128,6 @@ body {
 /* name  */
 .name {
   height: 2rem;
-  width: 100%;
   padding: 0.2rem 0.7rem;
   display: flex;
   align-items: center;
@@ -175,15 +174,13 @@ body {
 @media screen and (max-width: 670px) {
   .container {
     overflow: auto;
-    height: 100%;
+    height: auto;
   }
   .htmlCssJsContainer {
     flex-direction: column;
-    height: 100%;
   }
 
   .fullContainer {
-    width: 100%;
     height: 20rem;
   }
 
